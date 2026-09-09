@@ -1,0 +1,32 @@
+class Solution
+{
+public:
+    bool isPalindrome(string s)
+    {
+        int start = 0;
+        int end = s.length() - 1;
+        while (start < end)
+        {
+// Compare whether the strin is alpha numeric or not.
+            if (!isalnum(s[start]))
+            {
+                start++;
+                continue;
+            }
+            if (!isalnum(s[end]))
+            {
+                end--;
+                continue;
+            }
+
+// change the string in lower case.
+            if (tolower(s[start]) != tolower(s[end]))
+            {
+                return false;
+            }
+            start++;
+            end--;
+        }
+        return true;
+    }
+};

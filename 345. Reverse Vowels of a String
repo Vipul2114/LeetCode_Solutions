@@ -1,0 +1,36 @@
+class Solution {
+public:
+    string reverseVowels(string s) {
+
+        int start = 0;
+        int end = s.size() - 1;
+
+        while(start < end) {
+
+            char left = tolower(s[start]);
+            char right = tolower(s[end]);
+
+            bool leftVowel = (left == 'a' || left == 'e' ||
+                              left == 'i' || left == 'o' ||
+                              left == 'u');
+
+            bool rightVowel = (right == 'a' || right == 'e' ||
+                               right == 'i' || right == 'o' ||
+                               right == 'u');
+
+            if(leftVowel && rightVowel) {
+                swap(s[start], s[end]);
+                start++;
+                end--;
+            }
+            else if(!rightVowel) {
+                end--;
+            }
+            else {
+                start++;
+            }
+        }
+
+        return s;
+    }
+};

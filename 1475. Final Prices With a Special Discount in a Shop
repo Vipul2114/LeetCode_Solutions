@@ -1,0 +1,26 @@
+class Solution {
+public:
+    vector<int> finalPrices(vector<int>& prices) {
+        vector<int> ans;
+
+        for (int i = 0; i <= prices.size() - 1; i++) {
+
+            bool found = false;
+
+            for (int j = i + 1; j <= prices.size() - 1; j++) {
+
+                if (prices[j] <= prices[i]) {
+                    ans.push_back(prices[i] - prices[j]);
+                    found = true;
+                    break;
+                }
+            }
+
+            if (found == false) {
+                ans.push_back(prices[i]);
+            }
+        }
+
+        return ans;
+    }
+};
